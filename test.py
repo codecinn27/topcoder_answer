@@ -1,18 +1,12 @@
-def isPrime(n):
-    if n<2:
-        return False
-    elif n==2:
-        return True
-    elif n%2 == 0:
-        return False
-    for x in range(3, int(n**0.5)+1,2):
-        if n%x == 0:
-            return False
-    return True
+name = input()
+name_output = ""
+half = int(len(name)/2)
+starting_last = half-1
+for x in range(len(name)):
+    if x>half:
+        name_output+=name[starting_last]
+        starting_last-=1
+    else:
+        name_output+=name[x]
 
-start_val = int(input())
-final_val = int(input())
-
-for x in range(start_val, final_val+1):
-    if isPrime(x):
-        print(x, end=" ")
+print(name_output)
